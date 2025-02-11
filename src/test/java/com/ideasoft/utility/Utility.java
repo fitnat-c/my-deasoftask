@@ -1,19 +1,16 @@
 package com.ideasoft.utility;
 
 
-import com.ideasoft.pages.AdresDefterElements;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.stream.IntStream;
 
-public class Utility extends AdresDefterElements {
+public class Utility  {
     public static boolean isClickable(WebElement element, int waitTime) {
         try {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(waitTime));
@@ -66,6 +63,17 @@ public class Utility extends AdresDefterElements {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element)).click();
     }
+    public void clickElementMultipleTimes(WebElement element, int times, int waitTime) {
+        IntStream.range(0, times).forEach(i -> {
+            clickElementWithWait(element);
+            waits(waitTime);
+        });
+    }
+    public void sendKeyToElement(WebElement element, String text) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
+    }
+
 
     public void clearElement(WebElement element) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
@@ -76,10 +84,7 @@ public class Utility extends AdresDefterElements {
         wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
     }
 
-        public void sendKeyToElement(WebElement element, String text) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
-    }
+
 
     public void sendKeyToElementWithKeys(WebElement element, String text, Keys keys) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
@@ -129,4 +134,5 @@ public class Utility extends AdresDefterElements {
 
          alert.accept();
     }
+
 }

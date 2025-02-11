@@ -1,5 +1,7 @@
 package com.ideasoft.utility;
 
+import org.apache.poi.hssf.record.UserSViewEnd;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class ConfigReader {
         return configFile.getProperty(key);
     }
 
+    Utility utility =new Utility();
 
 
 }

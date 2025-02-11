@@ -29,6 +29,7 @@ public class Driver {
             initializeDriver();
             driverPool.get().manage().window().maximize();
 
+
         }
         return driverPool.get();
     }
