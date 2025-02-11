@@ -1,4 +1,4 @@
-Test senaryolarımla ulaştığım sonuçlar dokuman olarak aşağıdaki linltedir teşekkürler.
+Test senaryolarımla ulaştığım sonuçlar dokuman olarak aşağıdadır teşekkürler.
 
 
 
